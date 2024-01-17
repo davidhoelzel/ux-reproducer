@@ -1,0 +1,25 @@
+<div {{ attributes }}>
+    <div>
+    {{ form_start(form, {
+        attr: {
+            'data-action': 'live#action',
+            'data-action-name': 'prevent|save',
+            'data-live-id': initialFormData
+        }
+    }) }}
+    {{ form_row(form.text) }}
+    <button class="btn btn-primary">Save</button>
+    {{ form_end(form) }}
+    </div>
+    <div>
+        <h4>Calls of instantiateForm</h4>
+        <ul>
+        {% for formData in countInstantiateFormCalls %}
+            <li>{{ loop.index }} with {{ formData ?: '<span style="font-style: italic;">empty-string</span>' }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <p>This is the random-string from parent-component: {{ initialFormData }}</p>
+    </div>
+</div>
